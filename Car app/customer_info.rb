@@ -12,7 +12,7 @@ class Database
 end
 
 def cust_info
-  c1= Database.new(customer_info)
-  car_array= [c1]
-  puts car_array
+  cust1= Database.new(customer_info)
+  customer_array= [cust1]
+  puts customer_array
 end
