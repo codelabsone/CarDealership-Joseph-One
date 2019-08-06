@@ -7,8 +7,7 @@ def services
   while @user_input2 !="EXIT"
     @user_input2 = gets.chomp.upcase.to_s
       if @user_input2 == 'INVENTORY'||@user_input2=='INV'||@user_input2=="1"
-        puts "Current cars in inventory:"
-        puts @car_lot
+        car_info
       elsif @user_input2 == 'LOAN'||@user_input2=="2"
         loan
       elsif @user_input2 == 'CUSTOMER'||@user_input2=="3"
