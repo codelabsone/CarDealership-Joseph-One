@@ -1,20 +1,34 @@
+require_relative "car_questions"
 class Car
-  def initialize(condition, make, model, year, mileage,  price)
-    @make = make
-    @model = model
-    @year = year
-    @price = price
-    @condition =condition
-    @mileage=mileage
+  def initialize (cinfo)
+    @cinfo = cinfo
   end
-
+  def questions
+    car_questions()
+  end
   def to_s
-    "#{@condition.upcase}--#{@make.upcase}|#{@model.upcase}|#{@year}|#{@mileage} miles--$#{@price}"
+    "#{@cinfo}"
   end
 end
 
-@car1=Car.new("used", "honda", "civic", 2008, 140000, 10000)
-@car2=Car.new("used", "honda", "crv", 2001, 176000, 2000)
-@car3=Car.new("used", "chevrolet", "s10", 1994, 100000, 1500)
+@full_car_db=[]
 
-@car_lot=[@car1,@car2,@car3]
+def car_info
+  puts "Would you like to add car info[1] or view the car database[2]?"
+  answer = gets.chomp.to_i
+  if answer == 1
+    car1= Car.new(car_questions)
+    @car_array= [car1]
+    @full_car_db.push(@car_array)
+    File.open("full_car_db.csv", "w+") do |f|
+      @full_car_db.each { |element| f.puts(element) }
+    end
+    puts @car_array
+
+  elsif answer == 2
+    puts @full_car_db
+  else
+    puts "Invalid choice"
+    car_info
+  end
+end
