@@ -1,4 +1,10 @@
 require_relative "customer_database"
+require 'csv'
+
+  end
+end
+end
+
 class Database
   def initialize (info)
     @info = info
@@ -11,7 +17,7 @@ class Database
   end
 end
 
-@full_db=[]
+@full_customer_db=@array1.join(" ")
 
 def cust_info
   puts "Would you like to add customer info[1] or view the database[2]?"
