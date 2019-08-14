@@ -1,4 +1,6 @@
 require_relative "car_questions"
+require 'csv'
+array1=CSV.read("full_car_db.csv")
 class Car
   def initialize (cinfo)
     @cinfo = cinfo
@@ -11,7 +13,7 @@ class Car
   end
 end
 
-@full_car_db=[]
+@full_car_db=array1.join(" ")
 
 def car_info
   puts "Would you like to add car info[1] or view the car database[2]?"
