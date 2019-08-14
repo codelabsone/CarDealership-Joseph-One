@@ -11,12 +11,7 @@ def ui
         exit
       else
         puts "Invalid choice"
+        ui
       end
-        puts "Would you like to access a service?[yes/no]"
-        @user_input1= gets.chomp.upcase.to_s
-        if @user_input1 == "NO"
-          puts "Have a nice day!"
-          exit
-        end
   end
 end
