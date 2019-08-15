@@ -1,9 +1,7 @@
 require_relative "customer_database"
 require 'csv'
 
-  end
-end
-end
+
 
 class Database
   def initialize (info)
@@ -16,8 +14,7 @@ class Database
     "#{@info}"
   end
 end
-
-@full_customer_db=@array1.join(" ")
+@full_customer_db=[]
 
 def cust_info
   puts "Would you like to add customer info[1] or view the database[2]?"
@@ -25,14 +22,14 @@ def cust_info
   if answer == 1
     cust1= Database.new(customer_info)
     @customer_array= [cust1]
-    @full_db.push(@customer_array)
+    @full_customer_db.push(@customer_array)
     File.open("full_customer_db.csv", "w+") do |f|
-      @full_db.each { |element| f.puts(element) }
+      @full_customer_db.each { |element| f.puts(element) }
     end
     puts @customer_array
 
   elsif answer == 2
-    puts @full_db
+    puts @full_customer_db
   else
     puts "Invalid choice"
     cust_info
