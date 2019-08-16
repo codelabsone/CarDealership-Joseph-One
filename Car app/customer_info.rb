@@ -14,17 +14,19 @@ class Database
     "#{@info}"
   end
 end
-@full_customer_db=[]
+
 
 def cust_info
-  puts "Would you like to add customer info[1] or view the database[2]?"
+  @full_customer_db = [File.readlines('full_customer_db.csv')]
+  puts "Would you like to: \nadd customer info[1] \nview the database[2] \ngo back[3]?"
   answer = gets.chomp.to_i
   if answer == 1
     cust1= Database.new(customer_info)
-    @customer_array= [cust1]
-    @full_customer_db.push(@customer_array)
+    # @customer_array= [cust1]
+    # @full_customer_db.push(@customer_array)
     File.open("full_customer_db.csv", "w+") do |f|
-      @full_customer_db.each { |element| f.puts(element) }
+      # @full_customer_db.each { |element| f.puts(element) }
+      f.puts(cust1)
     end
     puts @customer_array
 
